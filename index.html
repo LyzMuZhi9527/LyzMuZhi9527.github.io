@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-架构师如何理解和应用系统的非功能性需求" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/01/04/%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%92%8C%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82/" class="article-date">
+  <time class="dt-published" datetime="2025-01-04T08:21:40.000Z" itemprop="datePublished">2025-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/01/04/%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%92%8C%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82/">架构师如何理解和应用系统的非功能性需求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="架构师如何理解和应用系统的非功能性需求"><a href="#架构师如何理解和应用系统的非功能性需求" class="headerlink" title="架构师如何理解和应用系统的非功能性需求"></a>架构师如何理解和应用系统的非功能性需求</h1><blockquote>
+<p>在软件开发中，我们往往很关注系统的功能性需求，也就是系统要实现哪些具体的业务功能。然而，对于一个高质量、能够稳定运行并满足用户期望的系统来说，非功能性需求同样起着举足轻重的作用。作为架构师，深入理解并合理应用这些非功能性需求，是构建健壮、高效系统的关键所在。本文将围绕性能要求、可扩展性、可用性、可靠性、安全性、可监控性与容错性等几个重要的非功能性需求方面展开讨论，通过源码解读、原理分析以及实际应用场景和代码示例来详细阐述如何在Java 系统中对它们进行有效的把控与实现。</p>
+</blockquote>
+<h2 id="一、性能要求"><a href="#一、性能要求" class="headerlink" title="一、性能要求"></a>一、性能要求</h2><h3 id="（一）理解性能要求"><a href="#（一）理解性能要求" class="headerlink" title="（一）理解性能要求"></a>（一）理解性能要求</h3><ul>
+<li>性能要求关乎系统在响应时间、吞吐量、资源利用率等方面的表现。例如，一个电商系统在促销活动期间，要能够快速响应大量用户的并发请求，确保商品浏览、下单等操作流畅进行，这就对系统的响应时间和吞吐量提出了严格要求。</li>
+</ul>
+<h3 id="（二）实现原理"><a href="#（二）实现原理" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><ul>
+<li>优化算法与数据结构选择：合适的算法和数据结构能极大地影响性能。比如，在查找操作频繁的场景中，使用 HashMap（平均时间复杂度为 ）相较于 LinkedList（查找时间复杂度为 ）效率更高。以下是简单示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DataLookup</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Map&lt;String, Integer&gt; dataMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        dataMap.put(<span class="string">&quot;key1&quot;</span>, <span class="number">1</span>);</span><br><span class="line">        dataMap.put(<span class="string">&quot;key2&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        <span class="comment">// 快速查找元素，时间复杂度接近常数级</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">value</span> <span class="operator">=</span> dataMap.get(<span class="string">&quot;key1&quot;</span>);</span><br><span class="line">        System.out.println(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多线程与并发控制：利用多线程可以提高系统的并行处理能力，但需要合理的并发控制机制，如使用 synchronized 关键字或者 java.util.concurrent 包下的锁机制（如 ReentrantLock）来避免线程安全问题并提升性能。示例代码如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Counter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increment</span><span class="params">()</span> &#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getCount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码通过 ReentrantLock 保证了在多线程环境下对 count 变量自增操作的原子性，避免了并发访问导致的数据不一致问题，同时能充分利用多核 CPU 的优势提升性能。</p>
+<h3 id="（三）应用场景"><a href="#（三）应用场景" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>高并发的 Web 应用：像在线支付系统、大型社交平台等，需要处理海量用户的并发请求，通过上述优化算法、数据结构以及合理的并发控制机制，确保系统在高负载下仍能快速响应。</li>
+<li>大数据处理系统：在数据批量处理、分析等场景中，选择高效的算法和数据结构（如使用 ArrayList 进行数据的顺序存储和快速遍历，结合合适的排序算法如快速排序等提高排序效率），提升整体的数据处理速度。</li>
+</ul>
+<h3 id="（四）性能测试与调优"><a href="#（四）性能测试与调优" class="headerlink" title="（四）性能测试与调优"></a>（四）性能测试与调优</h3><ul>
+<li>通过性能测试工具（如 JMeter、Apache Bench 等）模拟不同负载情况，收集系统响应时间、吞吐量、资源占用等指标数据，然后根据测试结果进行针对性的调优。例如，如果发现某个接口在高并发下响应时间过长，通过分析代码可能发现是频繁创建数据库连接导致的性能瓶颈，那么可以引入数据库连接池（如 HikariCP）来优化，以下是简单配置使用示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariDataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DatabaseConnectionExample</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> DataSource dataSource;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="type">HikariConfig</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariConfig</span>();</span><br><span class="line">        config.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/mydb&quot;</span>);</span><br><span class="line">        config.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        config.setPassword(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">        <span class="comment">// 配置连接池相关参数，如最大连接数、最小连接数等</span></span><br><span class="line">        config.setMaximumPoolSize(<span class="number">10</span>);</span><br><span class="line">        config.setMinimumIdle(<span class="number">5</span>);</span><br><span class="line">        dataSource = <span class="keyword">new</span> <span class="title class_">HikariDataSource</span>(config);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">return</span> dataSource.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过连接池预先创建并管理一定数量的数据库连接，避免每次请求都创建和销毁连接带来的开销，显著提升数据库访问性能。</p>
+<h2 id="二、可扩展性"><a href="#二、可扩展性" class="headerlink" title="二、可扩展性"></a>二、可扩展性</h2><h3 id="（一）理解可扩展性"><a href="#（一）理解可扩展性" class="headerlink" title="（一）理解可扩展性"></a>（一）理解可扩展性</h3><ul>
+<li>可扩展性意味着系统能够方便地应对业务增长、功能扩展以及用户量增加等情况，无需对现有架构进行大规模的重构。例如，一个电商平台后续要增加新的商品分类、营销活动类型等功能时，系统架构应能轻松支持这些扩展。</li>
+</ul>
+<h3 id="（二）实现原理-1"><a href="#（二）实现原理-1" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><ul>
+<li>模块化与分层架构设计：将系统划分为不同的模块（如业务逻辑层、数据访问层、表示层等），各模块职责明确，通过接口进行交互。以常见的 Java Web 应用的三层架构为例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示层（例如使用Spring MVC框架）</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/orders&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> OrderService orderService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过依赖注入获取业务逻辑层服务</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">OrderController</span><span class="params">(OrderService orderService)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.orderService = orderService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/create&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">createOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="comment">// 调用业务逻辑层方法创建订单</span></span><br><span class="line">        orderService.createOrder(order);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 业务逻辑层</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> OrderRepository orderRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">OrderService</span><span class="params">(OrderRepository orderRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.orderRepository = orderRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="comment">// 业务逻辑处理，如验证订单信息等</span></span><br><span class="line">        <span class="comment">// 调用数据访问层方法保存订单</span></span><br><span class="line">        orderRepository.save(order);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据访问层（例如使用Spring Data JPA）</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OrderRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;Order, Long&gt; &#123;</span><br><span class="line">    <span class="comment">// 继承通用的数据操作方法，也可自定义扩展方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种分层架构使得每个层次可以独立发展和扩展，比如要添加新的订单相关业务逻辑，只需在 OrderService 类中添加相应方法，不会影响到表示层和数据访问层的原有代码。</p>
+<ul>
+<li>微服务架构应用：将系统拆分成多个微服务，每个微服务独立部署、运行，通过轻量级的通信机制（如 RESTful API、消息队列等）进行交互。例如，一个电商系统可以拆分为用户服务、商品服务、订单服务等微服务。以用户服务为例，使用 Spring Boot 构建的简单微服务如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringBootApplication.run(UserServiceApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getUser</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;User information&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当业务扩展时，各个微服务可以根据自身的负载情况进行水平扩展（增加实例数量），而且不同微服务可以采用不同的技术栈进行开发，灵活性极高。</p>
+<h3 id="（三）应用场景-1"><a href="#（三）应用场景-1" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>企业级应用系统升级：随着企业业务的不断拓展，如增加新的业务流程、产品线等，通过模块化和微服务架构的可扩展性优势，能快速在现有系统基础上进行功能扩展和整合。</li>
+<li>互联网平台功能迭代：像在线教育平台要不断增加新的课程类型、教学互动功能等，利用可扩展性好的架构可以高效地实现功能的更新和扩展，满足用户日益增长的需求。</li>
+</ul>
+<h2 id="三、可用性"><a href="#三、可用性" class="headerlink" title="三、可用性"></a>三、可用性</h2><h3 id="（一）理解可用性"><a href="#（一）理解可用性" class="headerlink" title="（一）理解可用性"></a>（一）理解可用性</h3><ul>
+<li>可用性指系统在规定的条件下和规定的时间内完成规定功能的能力，通常用系统正常运行时间的百分比来衡量。例如，要求一个关键业务系统的可用性达到 99.99%，意味着每年的停机时间不能超过 52.6 分钟。</li>
+</ul>
+<h3 id="（二）实现原理-2"><a href="#（二）实现原理-2" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><ul>
+<li>负载均衡：通过负载均衡器（如 Nginx、HAProxy 等）将请求均匀地分发到多个后端服务器实例上，避免单点故障并提高系统整体的处理能力。以下是使用 Nginx 作为反向代理和负载均衡器的简单配置示例（配置文件部分内容）：</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="section">upstream</span> backend &#123;</span><br><span class="line">        <span class="attribute">server</span> backend1.example.com;</span><br><span class="line">        <span class="attribute">server</span> backend2.example.com;</span><br><span class="line">        <span class="attribute">server</span> backend3.example.com;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  example.com;</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://backend;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述配置将来自客户端访问 example.com 的请求，按照一定的负载均衡算法（如轮询、加权轮询等）分发到 backend1.example.com、backend2.example.com、backend3.example.com 这几个后端服务器上，当某个后端服务器出现故障时，其他服务器依然可以继续处理请求，保障系统的可用性。</p>
+<ul>
+<li>集群与冗余部署：部署多个相同功能的服务器节点组成集群，并且对关键组件（如数据库）进行冗余配置（如主从复制、多副本存储等）。以 MySQL 数据库的主从复制为例，在主服务器上配置：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在主服务器的配置文件中（my.cnf）添加以下配置，开启二进制日志</span></span><br><span class="line">log<span class="operator">-</span>bin<span class="operator">=</span>mysql<span class="operator">-</span>bin</span><br><span class="line">server<span class="operator">-</span>id<span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建用于从服务器连接的用户并授权</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span><span class="string">&#x27;repl&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> REPLICATION SLAVE <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span><span class="string">&#x27;repl&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看主服务器状态，记录下 File 和 Position 的值</span></span><br><span class="line"><span class="keyword">SHOW</span> MASTER STATUS;</span><br><span class="line">在从服务器上配置：</span><br><span class="line"><span class="keyword">sql</span></span><br><span class="line"><span class="comment">-- 在从服务器的配置文件中（my.cnf）设置服务器 ID</span></span><br><span class="line">server<span class="operator">-</span>id<span class="operator">=</span><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 配置连接主服务器进行复制</span></span><br><span class="line">CHANGE MASTER <span class="keyword">TO</span></span><br><span class="line">    MASTER_HOST<span class="operator">=</span><span class="string">&#x27;master_server_ip&#x27;</span>,</span><br><span class="line">    MASTER_USER<span class="operator">=</span><span class="string">&#x27;repl&#x27;</span>,</span><br><span class="line">    MASTER_PASSWORD<span class="operator">=</span><span class="string">&#x27;password&#x27;</span>,</span><br><span class="line">    MASTER_LOG_FILE<span class="operator">=</span><span class="string">&#x27;mysql-bin.000001&#x27;</span>,</span><br><span class="line">    MASTER_LOG_POS<span class="operator">=</span><span class="number">1234</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 启动从服务器的复制线程</span></span><br><span class="line"><span class="keyword">START</span> SLAVE;</span><br></pre></td></tr></table></figure>
+<p>通过这样的主从复制机制，当主数据库出现故障时，可以快速切换到从数据库继续提供服务，保证数据的可用性以及系统的正常运行。</p>
+<h3 id="（三）应用场景-2"><a href="#（三）应用场景-2" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>电商购物平台：尤其是在购物高峰期（如 “双 11”“618” 等促销活动期间），通过负载均衡和集群部署，确保大量用户能够顺畅地进行商品浏览、下单等操作，保障系统的高可用性。</li>
+<li>金融交易系统：对可用性要求极高，任何短暂的停机都可能造成重大损失，所以采用冗余的服务器、数据库备份等措施来保证系统随时可用，满足客户的交易需求。</li>
+</ul>
+<h2 id="四、可靠性"><a href="#四、可靠性" class="headerlink" title="四、可靠性"></a>四、可靠性</h2><h3 id="（一）理解可靠性"><a href="#（一）理解可靠性" class="headerlink" title="（一）理解可靠性"></a>（一）理解可靠性</h3><p>可靠性强调系统在面对各种异常情况（如硬件故障、软件错误、网络问题等）时，仍能保持正确运行并提供预期功能的特性。</p>
+<h3 id="（二）实现原理-3"><a href="#（二）实现原理-3" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><ul>
+<li>事务管理：在数据库操作以及涉及多个相关操作的业务场景中，使用事务来保证数据的一致性和完整性。以 Spring 框架结合数据库事务为例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.EntityManager;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.PersistenceContext;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="meta">@PersistenceContext</span></span><br><span class="line">    <span class="keyword">private</span> EntityManager entityManager;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">processOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="comment">// 保存订单信息到数据库</span></span><br><span class="line">        entityManager.persist(order);</span><br><span class="line">        <span class="comment">// 假设这里还有更新库存等其他相关操作，都在这个事务内执行</span></span><br><span class="line">        <span class="comment">// 如果任何一个操作失败，整个事务会回滚，保证数据的一致性</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码中，@Transactional 注解标记了 processOrder 方法为一个事务方法，当方法内的数据库操作出现异常时，所有已经执行的操作都会回滚，防止出现数据不一致的情况，提高了系统的可靠性。</p>
+<ul>
+<li>异常处理机制：在代码中合理地捕获和处理各种可能出现的异常，避免系统因未处理的异常而崩溃。例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileReaderExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">FileReader</span> <span class="variable">fileReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;test.txt&quot;</span>);</span><br><span class="line">            <span class="comment">// 读取文件内容操作</span></span><br><span class="line">            <span class="type">char</span>[] buffer = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">numRead</span> <span class="operator">=</span> fileReader.read(buffer);</span><br><span class="line">            <span class="keyword">while</span> (numRead!= -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">// 处理读取到的内容</span></span><br><span class="line">                numRead = fileReader.read(buffer);</span><br><span class="line">            &#125;</span><br><span class="line">            fileReader.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;文件未找到，可能需要检查文件路径是否正确&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;读取文件时出现 IO 错误&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 try-catch 块对可能出现的 FileNotFoundException 和 IOException 进行捕获和处理，使得系统在遇到文件相关的异常情况时，依然能够保持一定的稳定性，继续运行或者给出合理的提示信息，增强了系统整体的可靠性。</p>
+<h3 id="（三）应用场景-3"><a href="#（三）应用场景-3" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>企业资源规划（ERP）系统：涉及大量的企业核心数据和复杂的业务流程，通过可靠的事务管理和全面的异常处理机制，确保在日常操作以及各种突发状况下，数据的准确性和系统的正常运行，避免因数据错误或系统崩溃给企业带来重大损失。</li>
+<li>物流管理系统：在货物运输、库存管理等环节，需要处理众多的数据交互和业务操作，依靠可靠的机制保证系统在面对诸如网络波动、设备故障等问题时，依然能准确记录和更新货物状态等信息，保障物流业务的顺利开展。</li>
+</ul>
+<h2 id="五、安全性"><a href="#五、安全性" class="headerlink" title="五、安全性"></a>五、安全性</h2><h3 id="（一）理解安全性"><a href="#（一）理解安全性" class="headerlink" title="（一）理解安全性"></a>（一）理解安全性</h3><ul>
+<li>安全性涵盖了系统对数据的保密性、完整性以及用户身份认证、授权访问等多个方面，防止系统遭受外部攻击（如黑客入侵、数据泄露等）和内部的非法操作。</li>
+</ul>
+<h3 id="（二）实现原理-4"><a href="#（二）实现原理-4" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><ul>
+<li>用户认证与授权：<br>基于 Spring Security 的用户认证示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.NoOpPasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfig</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        auth.inMemoryAuthentication()</span><br><span class="line">               .withUser(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">               .password(<span class="string">&quot;password&quot;</span>)</span><br><span class="line">               .roles(<span class="string">&quot;USER&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        http.authorizeRequests()</span><br><span class="line">               .antMatchers(<span class="string">&quot;/admin/**&quot;</span>).hasRole(<span class="string">&quot;ADMIN&quot;</span>)</span><br><span class="line">               .anyRequest().authenticated()</span><br><span class="line">               .and()</span><br><span class="line">               .formLogin()</span><br><span class="line">               .and()</span><br><span class="line">               .httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> PasswordEncoder <span class="title function_">passwordEncoder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> NoOpPasswordEncoder.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码使用 Spring Security 框架配置了简单的用户认证和授权机制，在内存中定义了用户信息，并设置了不同路径的访问权限要求，如 &#x2F;admin&#x2F;** 路径需要 ADMIN 角色才能访问，其他请求需要用户认证后才能访问，保障了系统资源的安全访问。</p>
+<ul>
+<li>加密算法应用：对敏感数据（如用户密码、银行卡信息等）进行加密存储和传输。例如，使用 java.security.MessageDigest 对密码进行哈希加密：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PasswordEncryption</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encryptPassword</span><span class="params">(String password)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">MessageDigest</span> <span class="variable">md</span> <span class="operator">=</span> MessageDigest.getInstance(<span class="string">&quot;SHA-256&quot;</span>);</span><br><span class="line">            <span class="type">byte</span>[] hash = md.digest(password.getBytes());</span><br><span class="line">            <span class="type">StringBuilder</span> <span class="variable">hexString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">byte</span> b : hash) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">hex</span> <span class="operator">=</span> Integer.toHexString(<span class="number">0xff</span> &amp; b);</span><br><span class="line">                <span class="keyword">if</span> (hex.length() == <span class="number">1</span>) &#123;</span><br><span class="line">                    hexString.append(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                hexString.append(hex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> hexString.toString();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样即使数据库数据被窃取，攻击者也很难直接获取到原始的敏感信息，提高了数据的保密性。</p>
+<ul>
+<li>防止 SQL 注入与输入验证：<br>在处理用户输入时，进行严格的输入验证，防止恶意用户通过构造特殊的输入（如 SQL 注入语句）来攻击系统。例如，在使用 JDBC 操作数据库时：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.Driver</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SQLInjectionPrevention</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/mydb&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;password&quot;</span>);</span><br><span class="line">            <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">            System.out.println(<span class="string">&quot;请输入用户名:&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> scanner.nextLine();</span><br><span class="line">            <span class="comment">// 使用预编译语句，防止SQL注入</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM users WHERE username =?&quot;</span>;</span><br><span class="line">            <span class="type">PreparedStatement</span> <span class="variable">preparedStatement</span> <span class="operator">=</span> connection.prepareStatement(sql);</span><br><span class="line">            preparedStatement.setString(<span class="number">1</span>, username);</span><br><span class="line">            <span class="comment">// 执行查询等后续操作</span></span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">            preparedStatement.close();</span><br><span class="line">            connection.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，通过使用 PreparedStatement 来执行数据库查询操作，它会对用户输入的内容进行预处理，将数据部分当作参数传递，而不是直接拼接在 SQL 语句中，这样就能有效防止恶意用户输入类似 ‘ OR 1&#x3D;1 – 这样的 SQL 注入语句，保障了数据库操作的安全性。</p>
+<h3 id="（三）应用场景-4"><a href="#（三）应用场景-4" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>在线银行系统：用户登录时需要严格的身份认证机制，传输和存储用户的账户信息、交易密码等都要进行加密处理，同时在涉及账户查询、转账等操作时，要防止 SQL 注入等安全漏洞，确保用户资金安全和系统稳定运行。</li>
+<li>企业办公系统：内部员工登录需要进行身份验证，不同岗位员工有不同的权限访问相应的功能模块和数据资源，并且对于员工上传、下载的数据也要进行安全检测和验证，防止内部数据泄露以及外部攻击。</li>
+</ul>
+<h2 id="六、可监控性"><a href="#六、可监控性" class="headerlink" title="六、可监控性"></a>六、可监控性</h2><h3 id="（一）理解可监控性"><a href="#（一）理解可监控性" class="headerlink" title="（一）理解可监控性"></a>（一）理解可监控性</h3><p>可监控性是指能够实时或者定期地获取系统运行过程中的各种状态信息，如性能指标（CPU 使用率、内存占用、响应时间等）、业务指标（订单数量、活跃用户数等），以便及时发现问题、分析趋势并做出相应的决策。</p>
+<h3 id="（二）实现原理-5"><a href="#（二）实现原理-5" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><p>日志记录与分析：在系统关键位置添加日志输出，记录重要的操作、事件以及异常情况等信息。例如，在 Java 中使用 log4j 或 slf4j 等日志框架：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(OrderService.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 业务逻辑处理，如验证订单信息、保存订单等操作</span></span><br><span class="line">            logger.info(<span class="string">&quot;订单创建成功，订单号: &#123;&#125;&quot;</span>, order.getOrderId());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">&quot;订单创建过程中出现错误&quot;</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过配置日志框架的输出级别、存储位置等，可以将日志信息记录到文件或者发送到日志收集系统中。后续可以使用日志分析工具（如 ELK 日志分析平台，由 Elasticsearch、Logstash 和 Kibana 组成）对海量日志进行搜索、分析，从中发现系统的性能瓶颈、错误原因等情况。</p>
+<ul>
+<li>监控指标采集与可视化：利用监控工具（如 Prometheus 结合 Grafana）来采集系统的各项指标并进行可视化展示。以在 Spring Boot 应用中集成 Prometheus 为例，首先添加相关依赖：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.micrometer<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>micrometer-registry-prometheus<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后在配置文件中进行简单配置开启相关端点：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">    <span class="attr">web:</span></span><br><span class="line">      <span class="attr">exposure:</span></span><br><span class="line">        <span class="attr">include:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">  <span class="attr">metrics:</span></span><br><span class="line">    <span class="attr">export:</span></span><br><span class="line">      <span class="attr">prometheus:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>这样 Prometheus 就可以采集应用的诸如请求次数、响应时间、内存使用等指标信息，再通过 Grafana 进行配置，将这些指标以直观的图表形式展示出来，方便运维人员和开发人员实时监控系统状态。</p>
+<h3 id="（三）应用场景-5"><a href="#（三）应用场景-5" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>互联网应用运维：对于像电商平台、视频网站等大型互联网应用，运维团队可以通过可监控性机制实时掌握系统的运行状况，当出现响应时间过长、服务器资源紧张等情况时，能快速定位问题并采取措施，如增加服务器资源、优化代码逻辑等。</li>
+<li>软件项目迭代优化：开发团队可以根据监控到的业务指标（如不同功能模块的使用频率、用户操作路径等），了解用户行为和需求，为后续的功能迭代、性能优化提供依据，提升用户体验。</li>
+</ul>
+<h2 id="七、容错性"><a href="#七、容错性" class="headerlink" title="七、容错性"></a>七、容错性</h2><h3 id="（一）理解容错性"><a href="#（一）理解容错性" class="headerlink" title="（一）理解容错性"></a>（一）理解容错性</h3><p>容错性是指系统在部分组件出现故障时，仍能维持一定程度的正常运行，尽可能减少对用户体验和业务功能的影响。</p>
+<h3 id="（二）实现原理-6"><a href="#（二）实现原理-6" class="headerlink" title="（二）实现原理"></a>（二）实现原理</h3><p>缓存机制：使用缓存来减轻后端系统的压力，并且在后端服务暂时不可用或者响应缓慢时，缓存中的数据可以继续提供部分服务。例如，在 Spring 框架中使用 Spring Cache 结合 Redis 缓存：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Cacheable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProductService</span> &#123;</span><br><span class="line">    <span class="meta">@Cacheable(&quot;products&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Product <span class="title function_">getProductById</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">        <span class="comment">// 实际从数据库或其他数据源获取产品信息的逻辑</span></span><br><span class="line">        <span class="keyword">return</span> productRepository.findById(id).orElse(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当第一次调用 getProductById 方法获取产品信息后，结果会被缓存到 Redis 中（配置好 Redis 作为缓存存储介质的前提下），下次再查询相同产品 ID 的信息时，直接从缓存中获取，提高了响应速度。即使后端数据库出现短暂故障或者查询压力过大，缓存中的数据依然可以满足部分查询需求，增强了系统的容错性。</p>
+<ul>
+<li>降级策略：在系统面临高负载或者部分功能出现故障时，通过降级策略，暂时关闭或简化一些非核心功能，保障核心功能的正常运行。例如，在一个电商平台中，如果推荐系统所在的服务出现故障，可设置降级逻辑，在商品详情页面不展示推荐商品信息，只展示核心的商品描述、价格等内容，保证用户依然可以正常下单购买商品，代码示例如下（以简单的基于配置的降级逻辑为例）：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProductDetailPage</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> isRecommendationServiceAvailable;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ProductDetailPage</span><span class="params">(<span class="type">boolean</span> isRecommendationServiceAvailable)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.isRecommendationServiceAvailable = isRecommendationServiceAvailable;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;商品详情：&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;商品名称：[具体商品名]&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;商品价格：[具体价格]&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (isRecommendationServiceAvailable) &#123;</span><br><span class="line">            <span class="comment">// 调用推荐系统获取推荐商品并展示</span></span><br><span class="line">            displayRecommendations();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;推荐系统暂时不可用，暂不展示推荐商品信息&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">displayRecommendations</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 实际调用推荐系统的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这种降级策略，当推荐系统出现问题时，页面依然可以正常展示关键信息，维持了系统的基本功能，提高了容错能力。</p>
+<h3 id="（三）应用场景-6"><a href="#（三）应用场景-6" class="headerlink" title="（三）应用场景"></a>（三）应用场景</h3><ul>
+<li>分布式系统：在由多个微服务组成的分布式系统中，由于网络通信、服务依赖等因素，很容易出现部分服务故障的情况，通过缓存和降级策略等容错机制，能保障整个系统的整体可用性和业务连续性。</li>
+<li>云计算平台服务：面对大量用户的不同需求和各种复杂的运行环境，云计算平台需要具备良好的容错性，当某个计算节点、存储节点出现故障时，利用缓存数据、启动备用资源或者降级服务等方式，确保用户使用的核心功能不受太大影响，维持平台的稳定运行。</li>
+</ul>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><blockquote>
+<p>作为架构师，深刻理解并妥善应用系统的这些非功能性需求是构建高质量、可靠且能满足用户期望的系统的关键所在。性能要求关乎系统的运行效率，可扩展性决定了系统能否适应业务的发展，可用性、可靠性保障了系统稳定持久地服务，安全性保护系统免受各种威胁，可监控性助力我们及时洞察系统状态，而容错性则让系统在面对意外情况时依然能够坚强 “屹立”。通过合理的架构设计、代码实现以及技术选型，将这些非功能性需求融入到系统的每一个环节中，才能打造出真正优秀的软件系统，满足日益复杂和多样化的业务场景需求。</p>
+</blockquote>
+<p><strong>无套路、关注即可领。持续更新中</strong><br>关注公众号：搜 架构研究站，回复：资料领取，即可获取全部面试题以及1000+份学习资料<br><img src="https://i-blog.csdnimg.cn/direct/6f9d9ad620d540c39d24e56e292d0e61.jpeg#pic_center" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/01/04/%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%92%8C%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82/" data-id="cm5hx8lee0001g99k9ssp7x90" data-title="架构师如何理解和应用系统的非功能性需求" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/01/04/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2025-01-04T07:53:50.751Z" itemprop="datePublished">2025-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/01/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/01/04/hello-world/" data-id="cm5hx8leb0000g99k6zsg77rp" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/01/04/%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%92%8C%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82/">架构师如何理解和应用系统的非功能性需求</a>
+          </li>
+        
+          <li>
+            <a href="/2025/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
